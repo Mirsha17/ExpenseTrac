@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Tracker Dashboard | Mirsha</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar">
+      <h2 class="logo">💰 Mirsha<span>Track</span></h2>
+      <nav>
+        <ul>
+          <li class="active">🏠 Dashboard</li>
+          <li>📊 Analytics</li>
+          <li>⚙️ Settings</li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-btn">🌙</button>
+    </aside>
+
+    <main class="main-content">
+      <header class="header">
+        <h1>Expense Tracker Dashboard</h1>
+      </header>
+
+      <section class="cards">
+        <div class="card balance-card">
+          <h3>Current Balance</h3>
+          <p id="balance">$0.00</p>
+        </div>
+        <div class="card income-card">
+          <h3>Total Income</h3>
+          <p id="totalIncome">$0.00</p>
+        </div>
+        <div class="card expense-card">
+          <h3>Total Expense</h3>
+          <p id="totalExpense">$0.00</p>
+        </div>
+      </section>
+
+      <section class="chart-section">
+        <canvas id="expenseChart"></canvas>
+      </section>
+
+      <section class="transactions">
+        <div class="transaction-header">
+          <h2>Transactions</h2>
+          <input type="text" id="searchBox" placeholder="🔍 Search transactions..." />
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Type</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="transactionTable"></tbody>
+        </table>
+      </section>
+
+      <button id="addBtn" class="floating-btn">➕</button>
+    </main>
+  </div>
+
+  <!-- Transaction Modal -->
+  <div class="modal" id="transactionModal">
+    <div class="modal-content">
+      <h2>Add Transaction</h2>
+      <form id="transactionForm">
+        <input type="text" id="transactionName" placeholder="Name" required />
+        <input type="number" id="transactionAmount" placeholder="Amount" required />
+        <select id="transactionType">
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+        <select id="transactionCategory">
+          <option>General</option>
+          <option>Food</option>
+          <option>Transport</option>
+          <option>Bills</option>
+          <option>Shopping</option>
+        </select>
+        <input type="date" id="transactionDate" required />
+        <button type="submit">Add</button>
+      </form>
+      <button id="closeModal" class="close-btn">✖</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
